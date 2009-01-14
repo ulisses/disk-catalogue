@@ -1,0 +1,1060 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--Rendered using the Haskell Html Library v0.2-->
+<HTML
+><HEAD
+><META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8"
+><TITLE
+>Cd2</TITLE
+><LINK HREF="haddock.css" REL="stylesheet" TYPE="text/css"
+><SCRIPT SRC="haddock.js" TYPE="text/javascript"
+></SCRIPT
+></HEAD
+><BODY
+><TABLE CLASS="vanilla" CELLSPACING="0" CELLPADDING="0"
+><TR
+><TD CLASS="topbar"
+><TABLE CLASS="vanilla" CELLSPACING="0" CELLPADDING="0"
+><TR
+><TD
+><IMG SRC="haskell_icon.gif" WIDTH="16" HEIGHT="16" ALT=" "
+></TD
+><TD CLASS="title"
+>DiskCataloguer</TD
+><TD CLASS="topbut"
+><A HREF="index.html"
+>Contents</A
+></TD
+><TD CLASS="topbut"
+><A HREF="doc-index.html"
+>Index</A
+></TD
+></TR
+></TABLE
+></TD
+></TR
+><TR
+><TD CLASS="modulebar"
+><TABLE CLASS="vanilla" CELLSPACING="0" CELLPADDING="0"
+><TR
+><TD
+><FONT SIZE="6"
+>Cd2</FONT
+></TD
+><TD ALIGN="right"
+><TABLE CLASS="narrow" CELLSPACING="0" CELLPADDING="0"
+><TR
+><TD CLASS="infohead"
+>Portability</TD
+><TD CLASS="infoval"
+>portable</TD
+></TR
+><TR
+><TD CLASS="infohead"
+>Stability</TD
+><TD CLASS="infoval"
+>provisional</TD
+></TR
+><TR
+><TD CLASS="infohead"
+>Maintainer</TD
+><TD CLASS="infoval"
+>ulissesmonhecosta@gmail.com</TD
+></TR
+></TABLE
+></TD
+></TR
+></TABLE
+></TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="section1"
+>Description</TD
+></TR
+><TR
+><TD CLASS="doc"
+>This module illustrates &amp; tests most of the features of Haddock.
+ Testing references from the description: T, f, g, <TT
+><A HREF="Visible.html#v%3Avisible"
+>visible</A
+></TT
+>.
+</TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="section1"
+>Synopsis</TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="body"
+><TABLE CLASS="vanilla" CELLSPACING="0" CELLPADDING="0"
+><TR
+><TD CLASS="decl"
+><TABLE CLASS="vanilla" CELLSPACING="0" CELLPADDING="0"
+><TR
+><TD CLASS="decl"
+><SPAN CLASS="keyword"
+>data</SPAN
+> <A HREF="#t%3ADisco"
+>Disco</A
+> a</TD
+></TR
+><TR
+><TD CLASS="body"
+><TABLE CLASS="vanilla" CELLSPACING="0" CELLPADDING="0"
+><TR
+><TD CLASS="decl"
+>= <A HREF="#v%3AFicheiro"
+>Ficheiro</A
+> a</TD
+></TR
+><TR
+><TD CLASS="decl"
+>| <A HREF="#v%3APasta"
+>Pasta</A
+> a [<A HREF="Cd2.html#t%3ADisco"
+>Disco</A
+> a]</TD
+></TR
+></TABLE
+></TD
+></TR
+></TABLE
+></TD
+></TR
+><TR
+><TD CLASS="s8"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A HREF="#v%3AshowDisco"
+>showDisco</A
+> :: <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Text-Show.html#t%3AShow"
+>Show</A
+> a =&gt; <A HREF="Cd2.html#t%3ADisco"
+>Disco</A
+> a -&gt; <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Char.html#t%3AString"
+>String</A
+></TD
+></TR
+><TR
+><TD CLASS="s8"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><TABLE CLASS="vanilla" CELLSPACING="0" CELLPADDING="0"
+><TR
+><TD CLASS="decl"
+><SPAN CLASS="keyword"
+>data</SPAN
+> <A HREF="#t%3AData"
+>Data</A
+> </TD
+></TR
+><TR
+><TD CLASS="body"
+><TABLE CLASS="vanilla" CELLSPACING="0" CELLPADDING="0"
+><TR
+><TD CLASS="decl"
+>= <A HREF="#v%3AData"
+>Data</A
+> {<TABLE CLASS="vanilla" CELLSPACING="0" CELLPADDING="0"
+><TR
+><TD CLASS="recfield"
+><A HREF="#v%3Aname"
+>name</A
+> :: <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Char.html#t%3AString"
+>String</A
+></TD
+></TR
+><TR
+><TD CLASS="recfield"
+><A HREF="#v%3Asize"
+>size</A
+> :: <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Prelude.html#t%3AInteger"
+>Integer</A
+></TD
+></TR
+><TR
+><TD CLASS="recfield"
+><A HREF="#v%3AcreationTime"
+>creationTime</A
+> :: <A HREF="Cd2.html#t%3ADataSec"
+>DataSec</A
+></TD
+></TR
+><TR
+><TD CLASS="recfield"
+><A HREF="#v%3Atipo"
+>tipo</A
+> :: <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Char.html#t%3AString"
+>String</A
+></TD
+></TR
+></TABLE
+>}</TD
+></TR
+><TR
+><TD CLASS="decl"
+>| <A HREF="#v%3ADataNull"
+>DataNull</A
+></TD
+></TR
+></TABLE
+></TD
+></TR
+></TABLE
+></TD
+></TR
+><TR
+><TD CLASS="s8"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><SPAN CLASS="keyword"
+>type</SPAN
+> <A HREF="#t%3ADataSec"
+>DataSec</A
+> = <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Int.html#t%3AInt"
+>Int</A
+></TD
+></TR
+><TR
+><TD CLASS="s8"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A HREF="#v%3AgetIntTime"
+>getIntTime</A
+> :: <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/System-Time.html#t%3AClockTime"
+>ClockTime</A
+> -&gt; <A HREF="Cd2.html#t%3ADataSec"
+>DataSec</A
+></TD
+></TR
+><TR
+><TD CLASS="s8"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A HREF="#v%3AputTime"
+>putTime</A
+> :: <A HREF="Cd2.html#t%3ADataSec"
+>DataSec</A
+> -&gt; <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/System-Time.html#t%3AClockTime"
+>ClockTime</A
+></TD
+></TR
+><TR
+><TD CLASS="s8"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A HREF="#v%3Acatalist"
+>catalist</A
+> :: (<A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Either.html#t%3AEither"
+>Either</A
+> () (a, c) -&gt; c) -&gt; [a] -&gt; c</TD
+></TR
+><TR
+><TD CLASS="s8"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A HREF="#v%3Aanalist"
+>analist</A
+> :: (a -&gt; <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Either.html#t%3AEither"
+>Either</A
+> b (c, a)) -&gt; a -&gt; [c]</TD
+></TR
+><TR
+><TD CLASS="s8"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A HREF="#v%3Ahylolist"
+>hylolist</A
+> :: (<A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Either.html#t%3AEither"
+>Either</A
+> () (c, c) -&gt; c) -&gt; (a -&gt; <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Either.html#t%3AEither"
+>Either</A
+> b (c, a)) -&gt; a -&gt; c</TD
+></TR
+><TR
+><TD CLASS="s8"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A HREF="#v%3Areclist"
+>reclist</A
+> :: (c -&gt; d) -&gt; <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Either.html#t%3AEither"
+>Either</A
+> a (b, c) -&gt; <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Either.html#t%3AEither"
+>Either</A
+> a (b, d)</TD
+></TR
+><TR
+><TD CLASS="s8"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A HREF="#v%3Aoutlist"
+>outlist</A
+> :: [a] -&gt; <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Either.html#t%3AEither"
+>Either</A
+> () (a, [a])</TD
+></TR
+><TR
+><TD CLASS="s8"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A HREF="#v%3Ainlist"
+>inlist</A
+> :: <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Either.html#t%3AEither"
+>Either</A
+> a (b, [b]) -&gt; [b]</TD
+></TR
+><TR
+><TD CLASS="s8"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A HREF="#v%3Acatadisco"
+>catadisco</A
+> :: (<A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Either.html#t%3AEither"
+>Either</A
+> a (a, [c]) -&gt; c) -&gt; <A HREF="Cd2.html#t%3ADisco"
+>Disco</A
+> a -&gt; c</TD
+></TR
+><TR
+><TD CLASS="s8"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A HREF="#v%3Aanadisco"
+>anadisco</A
+> :: (a -&gt; <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Either.html#t%3AEither"
+>Either</A
+> a (a, [a])) -&gt; a -&gt; <A HREF="Cd2.html#t%3ADisco"
+>Disco</A
+> a</TD
+></TR
+><TR
+><TD CLASS="s8"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A HREF="#v%3Ahylodisco"
+>hylodisco</A
+> :: (<A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Either.html#t%3AEither"
+>Either</A
+> a (a, [c]) -&gt; c) -&gt; (a -&gt; <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Either.html#t%3AEither"
+>Either</A
+> a (a, [a])) -&gt; a -&gt; c</TD
+></TR
+><TR
+><TD CLASS="s8"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A HREF="#v%3Arecdisco"
+>recdisco</A
+> :: (a -&gt; b) -&gt; (c -&gt; d) -&gt; <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Either.html#t%3AEither"
+>Either</A
+> a (a, [c]) -&gt; <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Either.html#t%3AEither"
+>Either</A
+> b (b, [d])</TD
+></TR
+><TR
+><TD CLASS="s8"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A HREF="#v%3Aoutdisco"
+>outdisco</A
+> :: <A HREF="Cd2.html#t%3ADisco"
+>Disco</A
+> a -&gt; <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Either.html#t%3AEither"
+>Either</A
+> a (a, [<A HREF="Cd2.html#t%3ADisco"
+>Disco</A
+> a])</TD
+></TR
+><TR
+><TD CLASS="s8"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A HREF="#v%3Aindisco"
+>indisco</A
+> :: <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Either.html#t%3AEither"
+>Either</A
+> a (a, [<A HREF="Cd2.html#t%3ADisco"
+>Disco</A
+> a]) -&gt; <A HREF="Cd2.html#t%3ADisco"
+>Disco</A
+> a</TD
+></TR
+><TR
+><TD CLASS="s8"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A HREF="#v%3Anrfiles"
+>nrfiles</A
+> :: <A HREF="Cd2.html#t%3ADisco"
+>Disco</A
+> a -&gt; <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Prelude.html#t%3AInteger"
+>Integer</A
+></TD
+></TR
+><TR
+><TD CLASS="s8"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A HREF="#v%3Anrpastas"
+>nrpastas</A
+> :: <A HREF="Cd2.html#t%3ADisco"
+>Disco</A
+> a -&gt; <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Prelude.html#t%3AInteger"
+>Integer</A
+></TD
+></TR
+></TABLE
+></TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="section1"
+>Documentation</TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><SPAN CLASS="keyword"
+>data</SPAN
+> <A NAME="t%3ADisco"
+></A
+><B
+>Disco</B
+> a</TD
+></TR
+><TR
+><TD CLASS="body"
+><TABLE CLASS="vanilla" CELLSPACING="0" CELLPADDING="0"
+><TR
+><TD CLASS="section4"
+>Constructors</TD
+></TR
+><TR
+><TD CLASS="body"
+><TABLE CLASS="vanilla" CELLSPACING="1" CELLPADDING="0"
+><TR
+><TD CLASS="arg"
+><A NAME="v%3AFicheiro"
+></A
+><B
+>Ficheiro</B
+> a</TD
+><TD CLASS="rdoc"
+></TD
+></TR
+><TR
+><TD CLASS="arg"
+><A NAME="v%3APasta"
+></A
+><B
+>Pasta</B
+> a [<A HREF="Cd2.html#t%3ADisco"
+>Disco</A
+> a]</TD
+><TD CLASS="rdoc"
+></TD
+></TR
+></TABLE
+></TD
+></TR
+><TR
+><TD CLASS="section4"
+><IMG SRC="minus.gif" CLASS="coll" ONCLICK="toggle(this,'i:Disco')" ALT="show/hide"
+> Instances</TD
+></TR
+><TR
+><TD CLASS="body"
+><DIV ID="i:Disco" STYLE="display:block;"
+><TABLE CLASS="vanilla" CELLSPACING="1" CELLPADDING="0"
+><TR
+><TD CLASS="decl"
+><A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Control-Monad.html#t%3AFunctor"
+>Functor</A
+> <A HREF="Cd2.html#t%3ADisco"
+>Disco</A
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+>Binary a =&gt; Binary (<A HREF="Cd2.html#t%3ADisco"
+>Disco</A
+> a)</TD
+></TR
+><TR
+><TD CLASS="decl"
+>(<A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Eq.html#t%3AEq"
+>Eq</A
+> a, ??? a) =&gt; <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Eq.html#t%3AEq"
+>Eq</A
+> (<A HREF="Cd2.html#t%3ADisco"
+>Disco</A
+> a)</TD
+></TR
+><TR
+><TD CLASS="decl"
+>(<A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Ord.html#t%3AOrd"
+>Ord</A
+> a, ??? a) =&gt; <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Ord.html#t%3AOrd"
+>Ord</A
+> (<A HREF="Cd2.html#t%3ADisco"
+>Disco</A
+> a)</TD
+></TR
+><TR
+><TD CLASS="decl"
+>(<A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Text-Read.html#t%3ARead"
+>Read</A
+> a, ??? a) =&gt; <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Text-Read.html#t%3ARead"
+>Read</A
+> (<A HREF="Cd2.html#t%3ADisco"
+>Disco</A
+> a)</TD
+></TR
+><TR
+><TD CLASS="decl"
+><A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Text-Show.html#t%3AShow"
+>Show</A
+> a =&gt; <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Text-Show.html#t%3AShow"
+>Show</A
+> (<A HREF="Cd2.html#t%3ADisco"
+>Disco</A
+> a)</TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3AshowDisco"
+></A
+><B
+>showDisco</B
+> :: <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Text-Show.html#t%3AShow"
+>Show</A
+> a =&gt; <A HREF="Cd2.html#t%3ADisco"
+>Disco</A
+> a -&gt; <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Char.html#t%3AString"
+>String</A
+></TD
+></TR
+><TR
+><TD CLASS="doc"
+><P
+>Converts a <TT
+><A HREF="Cd2.html#t%3ADisco"
+>Disco</A
+></TT
+> a to a <TT
+><A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Char.html#t%3AString"
+>String</A
+></TT
+>.
+</P
+><P
+>Na integra o que estava na biblioteca <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Tree.html"
+>Data.Tree</A
+>
+</P
+></TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><SPAN CLASS="keyword"
+>data</SPAN
+> <A NAME="t%3AData"
+></A
+><B
+>Data</B
+> </TD
+></TR
+><TR
+><TD CLASS="body"
+><TABLE CLASS="vanilla" CELLSPACING="0" CELLPADDING="0"
+><TR
+><TD CLASS="section4"
+>Constructors</TD
+></TR
+><TR
+><TD CLASS="body"
+><TABLE CLASS="vanilla" CELLSPACING="5" CELLPADDING="0"
+><TR
+><TD CLASS="arg"
+><A NAME="v%3AData"
+></A
+><B
+>Data</B
+></TD
+><TD CLASS="rdoc"
+></TD
+></TR
+><TR
+><TD CLASS="body" COLSPAN="2"
+><TABLE CLASS="vanilla" CELLSPACING="1" CELLPADDING="0"
+><TR
+><TD CLASS="arg"
+><A NAME="v%3Aname"
+></A
+><B
+>name</B
+> :: <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Char.html#t%3AString"
+>String</A
+></TD
+><TD CLASS="rdoc"
+></TD
+></TR
+><TR
+><TD CLASS="arg"
+><A NAME="v%3Asize"
+></A
+><B
+>size</B
+> :: <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Prelude.html#t%3AInteger"
+>Integer</A
+></TD
+><TD CLASS="rdoc"
+></TD
+></TR
+><TR
+><TD CLASS="arg"
+><A NAME="v%3AcreationTime"
+></A
+><B
+>creationTime</B
+> :: <A HREF="Cd2.html#t%3ADataSec"
+>DataSec</A
+></TD
+><TD CLASS="rdoc"
+></TD
+></TR
+><TR
+><TD CLASS="arg"
+><A NAME="v%3Atipo"
+></A
+><B
+>tipo</B
+> :: <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Char.html#t%3AString"
+>String</A
+></TD
+><TD CLASS="rdoc"
+></TD
+></TR
+></TABLE
+></TD
+></TR
+><TR
+><TD CLASS="arg"
+><A NAME="v%3ADataNull"
+></A
+><B
+>DataNull</B
+></TD
+><TD CLASS="rdoc"
+></TD
+></TR
+></TABLE
+></TD
+></TR
+><TR
+><TD CLASS="section4"
+><IMG SRC="minus.gif" CLASS="coll" ONCLICK="toggle(this,'i:Data')" ALT="show/hide"
+> Instances</TD
+></TR
+><TR
+><TD CLASS="body"
+><DIV ID="i:Data" STYLE="display:block;"
+><TABLE CLASS="vanilla" CELLSPACING="1" CELLPADDING="0"
+><TR
+><TD CLASS="decl"
+>Binary <A HREF="Cd2.html#t%3AData"
+>Data</A
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Eq.html#t%3AEq"
+>Eq</A
+> <A HREF="Cd2.html#t%3AData"
+>Data</A
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Ord.html#t%3AOrd"
+>Ord</A
+> <A HREF="Cd2.html#t%3AData"
+>Data</A
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Text-Read.html#t%3ARead"
+>Read</A
+> <A HREF="Cd2.html#t%3AData"
+>Data</A
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Text-Show.html#t%3AShow"
+>Show</A
+> <A HREF="Cd2.html#t%3AData"
+>Data</A
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><SPAN CLASS="keyword"
+>type</SPAN
+> <A NAME="t%3ADataSec"
+></A
+><B
+>DataSec</B
+> = <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Int.html#t%3AInt"
+>Int</A
+></TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3AgetIntTime"
+></A
+><B
+>getIntTime</B
+> :: <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/System-Time.html#t%3AClockTime"
+>ClockTime</A
+> -&gt; <A HREF="Cd2.html#t%3ADataSec"
+>DataSec</A
+></TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3AputTime"
+></A
+><B
+>putTime</B
+> :: <A HREF="Cd2.html#t%3ADataSec"
+>DataSec</A
+> -&gt; <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/System-Time.html#t%3AClockTime"
+>ClockTime</A
+></TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3Acatalist"
+></A
+><B
+>catalist</B
+> :: (<A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Either.html#t%3AEither"
+>Either</A
+> () (a, c) -&gt; c) -&gt; [a] -&gt; c</TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3Aanalist"
+></A
+><B
+>analist</B
+> :: (a -&gt; <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Either.html#t%3AEither"
+>Either</A
+> b (c, a)) -&gt; a -&gt; [c]</TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3Ahylolist"
+></A
+><B
+>hylolist</B
+> :: (<A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Either.html#t%3AEither"
+>Either</A
+> () (c, c) -&gt; c) -&gt; (a -&gt; <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Either.html#t%3AEither"
+>Either</A
+> b (c, a)) -&gt; a -&gt; c</TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3Areclist"
+></A
+><B
+>reclist</B
+> :: (c -&gt; d) -&gt; <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Either.html#t%3AEither"
+>Either</A
+> a (b, c) -&gt; <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Either.html#t%3AEither"
+>Either</A
+> a (b, d)</TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3Aoutlist"
+></A
+><B
+>outlist</B
+> :: [a] -&gt; <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Either.html#t%3AEither"
+>Either</A
+> () (a, [a])</TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3Ainlist"
+></A
+><B
+>inlist</B
+> :: <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Either.html#t%3AEither"
+>Either</A
+> a (b, [b]) -&gt; [b]</TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3Acatadisco"
+></A
+><B
+>catadisco</B
+> :: (<A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Either.html#t%3AEither"
+>Either</A
+> a (a, [c]) -&gt; c) -&gt; <A HREF="Cd2.html#t%3ADisco"
+>Disco</A
+> a -&gt; c</TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3Aanadisco"
+></A
+><B
+>anadisco</B
+> :: (a -&gt; <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Either.html#t%3AEither"
+>Either</A
+> a (a, [a])) -&gt; a -&gt; <A HREF="Cd2.html#t%3ADisco"
+>Disco</A
+> a</TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3Ahylodisco"
+></A
+><B
+>hylodisco</B
+> :: (<A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Either.html#t%3AEither"
+>Either</A
+> a (a, [c]) -&gt; c) -&gt; (a -&gt; <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Either.html#t%3AEither"
+>Either</A
+> a (a, [a])) -&gt; a -&gt; c</TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3Arecdisco"
+></A
+><B
+>recdisco</B
+> :: (a -&gt; b) -&gt; (c -&gt; d) -&gt; <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Either.html#t%3AEither"
+>Either</A
+> a (a, [c]) -&gt; <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Either.html#t%3AEither"
+>Either</A
+> b (b, [d])</TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3Aoutdisco"
+></A
+><B
+>outdisco</B
+> :: <A HREF="Cd2.html#t%3ADisco"
+>Disco</A
+> a -&gt; <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Either.html#t%3AEither"
+>Either</A
+> a (a, [<A HREF="Cd2.html#t%3ADisco"
+>Disco</A
+> a])</TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3Aindisco"
+></A
+><B
+>indisco</B
+> :: <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Either.html#t%3AEither"
+>Either</A
+> a (a, [<A HREF="Cd2.html#t%3ADisco"
+>Disco</A
+> a]) -&gt; <A HREF="Cd2.html#t%3ADisco"
+>Disco</A
+> a</TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3Anrfiles"
+></A
+><B
+>nrfiles</B
+> :: <A HREF="Cd2.html#t%3ADisco"
+>Disco</A
+> a -&gt; <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Prelude.html#t%3AInteger"
+>Integer</A
+></TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3Anrpastas"
+></A
+><B
+>nrpastas</B
+> :: <A HREF="Cd2.html#t%3ADisco"
+>Disco</A
+> a -&gt; <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Prelude.html#t%3AInteger"
+>Integer</A
+></TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="botbar"
+>Produced by <A HREF="http://www.haskell.org/haddock/"
+>Haddock</A
+> version 0.8</TD
+></TR
+></TABLE
+></BODY
+></HTML
+>

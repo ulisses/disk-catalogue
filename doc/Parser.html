@@ -1,0 +1,812 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--Rendered using the Haskell Html Library v0.2-->
+<HTML
+><HEAD
+><META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8"
+><TITLE
+>Parser</TITLE
+><LINK HREF="haddock.css" REL="stylesheet" TYPE="text/css"
+><SCRIPT SRC="haddock.js" TYPE="text/javascript"
+></SCRIPT
+></HEAD
+><BODY
+><TABLE CLASS="vanilla" CELLSPACING="0" CELLPADDING="0"
+><TR
+><TD CLASS="topbar"
+><TABLE CLASS="vanilla" CELLSPACING="0" CELLPADDING="0"
+><TR
+><TD
+><IMG SRC="haskell_icon.gif" WIDTH="16" HEIGHT="16" ALT=" "
+></TD
+><TD CLASS="title"
+>DiskCataloguer</TD
+><TD CLASS="topbut"
+><A HREF="index.html"
+>Contents</A
+></TD
+><TD CLASS="topbut"
+><A HREF="doc-index.html"
+>Index</A
+></TD
+></TR
+></TABLE
+></TD
+></TR
+><TR
+><TD CLASS="modulebar"
+><TABLE CLASS="vanilla" CELLSPACING="0" CELLPADDING="0"
+><TR
+><TD
+><FONT SIZE="6"
+>Parser</FONT
+></TD
+><TD ALIGN="right"
+><TABLE CLASS="narrow" CELLSPACING="0" CELLPADDING="0"
+><TR
+><TD CLASS="infohead"
+>Portability</TD
+><TD CLASS="infoval"
+>portable</TD
+></TR
+><TR
+><TD CLASS="infohead"
+>Stability</TD
+><TD CLASS="infoval"
+>provisional</TD
+></TR
+><TR
+><TD CLASS="infohead"
+>Maintainer</TD
+><TD CLASS="infoval"
+>ulissesmonhecosta@gmail.com</TD
+></TR
+></TABLE
+></TD
+></TR
+></TABLE
+></TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="section1"
+>Description</TD
+></TR
+><TR
+><TD CLASS="doc"
+>This module illustrates &amp; tests most of the features of Haddock.
+ Testing references from the description: <TT
+><A HREF="Parser.html#v%3AT"
+>T</A
+></TT
+>, f, g, <TT
+><A HREF="Visible.html#v%3Avisible"
+>visible</A
+></TT
+>.
+</TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="section1"
+>Synopsis</TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="body"
+><TABLE CLASS="vanilla" CELLSPACING="0" CELLPADDING="0"
+><TR
+><TD CLASS="decl"
+><SPAN CLASS="keyword"
+>type</SPAN
+> <A HREF="#t%3AComando"
+>Comando</A
+> = <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Char.html#t%3AString"
+>String</A
+></TD
+></TR
+><TR
+><TD CLASS="s8"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><TABLE CLASS="vanilla" CELLSPACING="0" CELLPADDING="0"
+><TR
+><TD CLASS="decl"
+><SPAN CLASS="keyword"
+>data</SPAN
+> <A HREF="#t%3AFlag"
+>Flag</A
+> </TD
+></TR
+><TR
+><TD CLASS="body"
+><TABLE CLASS="vanilla" CELLSPACING="0" CELLPADDING="0"
+><TR
+><TD CLASS="decl"
+>= <A HREF="#v%3AScan"
+>Scan</A
+> <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/System-IO.html#t%3AFilePath"
+>FilePath</A
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+>| <A HREF="#v%3ASave"
+>Save</A
+> <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/System-IO.html#t%3AFilePath"
+>FilePath</A
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+>| <A HREF="#v%3ASearch"
+>Search</A
+> <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Char.html#t%3AString"
+>String</A
+> [<A HREF="Parser.html#t%3AS"
+>S</A
+>]</TD
+></TR
+><TR
+><TD CLASS="decl"
+>| <A HREF="#v%3AShowTreeNames"
+>ShowTreeNames</A
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+>| <A HREF="#v%3AShowTreeSizes"
+>ShowTreeSizes</A
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+>| <A HREF="#v%3AShowTreeCreationTime"
+>ShowTreeCreationTime</A
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+>| <A HREF="#v%3AShowTreeAll"
+>ShowTreeAll</A
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+>| <A HREF="#v%3AExit"
+>Exit</A
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+>| <A HREF="#v%3AVersion"
+>Version</A
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+>| <A HREF="#v%3AHelp"
+>Help</A
+></TD
+></TR
+></TABLE
+></TD
+></TR
+></TABLE
+></TD
+></TR
+><TR
+><TD CLASS="s8"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A HREF="#v%3AparseSearch"
+>parseSearch</A
+> :: <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Text-ParserCombinators-ReadP.html#t%3AReadS"
+>ReadS</A
+> <A HREF="Parser.html#t%3AFlag"
+>Flag</A
+></TD
+></TR
+><TR
+><TD CLASS="s8"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><SPAN CLASS="keyword"
+>type</SPAN
+> <A HREF="#t%3AFlagSearch"
+>FlagSearch</A
+> = <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Char.html#t%3AString"
+>String</A
+></TD
+></TR
+><TR
+><TD CLASS="s8"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><TABLE CLASS="vanilla" CELLSPACING="0" CELLPADDING="0"
+><TR
+><TD CLASS="decl"
+><SPAN CLASS="keyword"
+>data</SPAN
+> <A HREF="#t%3AS"
+>S</A
+> </TD
+></TR
+><TR
+><TD CLASS="body"
+><TABLE CLASS="vanilla" CELLSPACING="0" CELLPADDING="0"
+><TR
+><TD CLASS="decl"
+>= <A HREF="#v%3A%3A%5E%3A"
+>(:^:)</A
+> <A HREF="Parser.html#t%3AS"
+>S</A
+> <A HREF="Parser.html#t%3AS"
+>S</A
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+>| <A HREF="#v%3AMsMaior"
+>MsMaior</A
+> <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Char.html#t%3AString"
+>String</A
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+>| <A HREF="#v%3AMsMenor"
+>MsMenor</A
+> <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Char.html#t%3AString"
+>String</A
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+>| <A HREF="#v%3AT"
+>T</A
+> <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Char.html#t%3AString"
+>String</A
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+>| <A HREF="#v%3AMdMaior"
+>MdMaior</A
+> <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Char.html#t%3AString"
+>String</A
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+>| <A HREF="#v%3AMdMenor"
+>MdMenor</A
+> <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Char.html#t%3AString"
+>String</A
+></TD
+></TR
+></TABLE
+></TD
+></TR
+></TABLE
+></TD
+></TR
+><TR
+><TD CLASS="s8"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A HREF="#v%3AreadS"
+>readS</A
+> :: <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Text-ParserCombinators-ReadP.html#t%3AReadS"
+>ReadS</A
+> [<A HREF="Parser.html#t%3AS"
+>S</A
+>]</TD
+></TR
+><TR
+><TD CLASS="s8"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A HREF="#v%3Aprocura"
+>procura</A
+> :: <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Text-Show.html#t%3AShow"
+>Show</A
+> a =&gt; a -&gt; [<A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Int.html#t%3AInt"
+>Int</A
+>]</TD
+></TR
+><TR
+><TD CLASS="s8"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A HREF="#v%3Aflags"
+>flags</A
+> :: [<A HREF="Parser.html#t%3AFlagSearch"
+>FlagSearch</A
+>]</TD
+></TR
+></TABLE
+></TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="section1"
+>Documentation</TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><SPAN CLASS="keyword"
+>type</SPAN
+> <A NAME="t%3AComando"
+></A
+><B
+>Comando</B
+> = <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Char.html#t%3AString"
+>String</A
+></TD
+></TR
+><TR
+><TD CLASS="doc"
+>um comando... podemos dar <EM
+> enfase </EM
+> a uma palavra...
+</TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><SPAN CLASS="keyword"
+>data</SPAN
+> <A NAME="t%3AFlag"
+></A
+><B
+>Flag</B
+> </TD
+></TR
+><TR
+><TD CLASS="body"
+><TABLE CLASS="vanilla" CELLSPACING="0" CELLPADDING="0"
+><TR
+><TD CLASS="ndoc"
+>comentario de um data...
+</TD
+></TR
+><TR
+><TD CLASS="section4"
+>Constructors</TD
+></TR
+><TR
+><TD CLASS="body"
+><TABLE CLASS="vanilla" CELLSPACING="1" CELLPADDING="0"
+><TR
+><TD CLASS="arg"
+><A NAME="v%3AScan"
+></A
+><B
+>Scan</B
+> <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/System-IO.html#t%3AFilePath"
+>FilePath</A
+></TD
+><TD CLASS="rdoc"
+></TD
+></TR
+><TR
+><TD CLASS="arg"
+><A NAME="v%3ASave"
+></A
+><B
+>Save</B
+> <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/System-IO.html#t%3AFilePath"
+>FilePath</A
+></TD
+><TD CLASS="rdoc"
+></TD
+></TR
+><TR
+><TD CLASS="arg"
+><A NAME="v%3ASearch"
+></A
+><B
+>Search</B
+> <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Char.html#t%3AString"
+>String</A
+> [<A HREF="Parser.html#t%3AS"
+>S</A
+>]</TD
+><TD CLASS="rdoc"
+></TD
+></TR
+><TR
+><TD CLASS="arg"
+><A NAME="v%3AShowTreeNames"
+></A
+><B
+>ShowTreeNames</B
+></TD
+><TD CLASS="rdoc"
+></TD
+></TR
+><TR
+><TD CLASS="arg"
+><A NAME="v%3AShowTreeSizes"
+></A
+><B
+>ShowTreeSizes</B
+></TD
+><TD CLASS="rdoc"
+></TD
+></TR
+><TR
+><TD CLASS="arg"
+><A NAME="v%3AShowTreeCreationTime"
+></A
+><B
+>ShowTreeCreationTime</B
+></TD
+><TD CLASS="rdoc"
+></TD
+></TR
+><TR
+><TD CLASS="arg"
+><A NAME="v%3AShowTreeAll"
+></A
+><B
+>ShowTreeAll</B
+></TD
+><TD CLASS="rdoc"
+></TD
+></TR
+><TR
+><TD CLASS="arg"
+><A NAME="v%3AExit"
+></A
+><B
+>Exit</B
+></TD
+><TD CLASS="rdoc"
+></TD
+></TR
+><TR
+><TD CLASS="arg"
+><A NAME="v%3AVersion"
+></A
+><B
+>Version</B
+></TD
+><TD CLASS="rdoc"
+></TD
+></TR
+><TR
+><TD CLASS="arg"
+><A NAME="v%3AHelp"
+></A
+><B
+>Help</B
+></TD
+><TD CLASS="rdoc"
+></TD
+></TR
+></TABLE
+></TD
+></TR
+><TR
+><TD CLASS="section4"
+><IMG SRC="minus.gif" CLASS="coll" ONCLICK="toggle(this,'i:Flag')" ALT="show/hide"
+> Instances</TD
+></TR
+><TR
+><TD CLASS="body"
+><DIV ID="i:Flag" STYLE="display:block;"
+><TABLE CLASS="vanilla" CELLSPACING="1" CELLPADDING="0"
+><TR
+><TD CLASS="decl"
+><A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Eq.html#t%3AEq"
+>Eq</A
+> <A HREF="Parser.html#t%3AFlag"
+>Flag</A
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Ord.html#t%3AOrd"
+>Ord</A
+> <A HREF="Parser.html#t%3AFlag"
+>Flag</A
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Text-Read.html#t%3ARead"
+>Read</A
+> <A HREF="Parser.html#t%3AFlag"
+>Flag</A
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Text-Show.html#t%3AShow"
+>Show</A
+> <A HREF="Parser.html#t%3AFlag"
+>Flag</A
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3AparseSearch"
+></A
+><B
+>parseSearch</B
+> :: <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Text-ParserCombinators-ReadP.html#t%3AReadS"
+>ReadS</A
+> <A HREF="Parser.html#t%3AFlag"
+>Flag</A
+></TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><SPAN CLASS="keyword"
+>type</SPAN
+> <A NAME="t%3AFlagSearch"
+></A
+><B
+>FlagSearch</B
+> = <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Char.html#t%3AString"
+>String</A
+></TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><SPAN CLASS="keyword"
+>data</SPAN
+> <A NAME="t%3AS"
+></A
+><B
+>S</B
+> </TD
+></TR
+><TR
+><TD CLASS="body"
+><TABLE CLASS="vanilla" CELLSPACING="0" CELLPADDING="0"
+><TR
+><TD CLASS="section4"
+>Constructors</TD
+></TR
+><TR
+><TD CLASS="body"
+><TABLE CLASS="vanilla" CELLSPACING="1" CELLPADDING="0"
+><TR
+><TD CLASS="arg"
+><A NAME="v%3A%3A%5E%3A"
+></A
+><B
+>(:^:)</B
+> <A HREF="Parser.html#t%3AS"
+>S</A
+> <A HREF="Parser.html#t%3AS"
+>S</A
+></TD
+><TD CLASS="rdoc"
+></TD
+></TR
+><TR
+><TD CLASS="arg"
+><A NAME="v%3AMsMaior"
+></A
+><B
+>MsMaior</B
+> <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Char.html#t%3AString"
+>String</A
+></TD
+><TD CLASS="rdoc"
+></TD
+></TR
+><TR
+><TD CLASS="arg"
+><A NAME="v%3AMsMenor"
+></A
+><B
+>MsMenor</B
+> <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Char.html#t%3AString"
+>String</A
+></TD
+><TD CLASS="rdoc"
+></TD
+></TR
+><TR
+><TD CLASS="arg"
+><A NAME="v%3AT"
+></A
+><B
+>T</B
+> <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Char.html#t%3AString"
+>String</A
+></TD
+><TD CLASS="rdoc"
+></TD
+></TR
+><TR
+><TD CLASS="arg"
+><A NAME="v%3AMdMaior"
+></A
+><B
+>MdMaior</B
+> <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Char.html#t%3AString"
+>String</A
+></TD
+><TD CLASS="rdoc"
+></TD
+></TR
+><TR
+><TD CLASS="arg"
+><A NAME="v%3AMdMenor"
+></A
+><B
+>MdMenor</B
+> <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Char.html#t%3AString"
+>String</A
+></TD
+><TD CLASS="rdoc"
+></TD
+></TR
+></TABLE
+></TD
+></TR
+><TR
+><TD CLASS="section4"
+><IMG SRC="minus.gif" CLASS="coll" ONCLICK="toggle(this,'i:S')" ALT="show/hide"
+> Instances</TD
+></TR
+><TR
+><TD CLASS="body"
+><DIV ID="i:S" STYLE="display:block;"
+><TABLE CLASS="vanilla" CELLSPACING="1" CELLPADDING="0"
+><TR
+><TD CLASS="decl"
+><A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Eq.html#t%3AEq"
+>Eq</A
+> <A HREF="Parser.html#t%3AS"
+>S</A
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Ord.html#t%3AOrd"
+>Ord</A
+> <A HREF="Parser.html#t%3AS"
+>S</A
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Text-Read.html#t%3ARead"
+>Read</A
+> <A HREF="Parser.html#t%3AS"
+>S</A
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Text-Show.html#t%3AShow"
+>Show</A
+> <A HREF="Parser.html#t%3AS"
+>S</A
+></TD
+></TR
+></TABLE
+></DIV
+></TD
+></TR
+></TABLE
+></TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3AreadS"
+></A
+><B
+>readS</B
+> :: <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Text-ParserCombinators-ReadP.html#t%3AReadS"
+>ReadS</A
+> [<A HREF="Parser.html#t%3AS"
+>S</A
+>]</TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3Aprocura"
+></A
+><B
+>procura</B
+> :: <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Text-Show.html#t%3AShow"
+>Show</A
+> a =&gt; a -&gt; [<A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Int.html#t%3AInt"
+>Int</A
+>]</TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3Aflags"
+></A
+><B
+>flags</B
+> :: [<A HREF="Parser.html#t%3AFlagSearch"
+>FlagSearch</A
+>]</TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="botbar"
+>Produced by <A HREF="http://www.haskell.org/haddock/"
+>Haddock</A
+> version 0.8</TD
+></TR
+></TABLE
+></BODY
+></HTML
+>

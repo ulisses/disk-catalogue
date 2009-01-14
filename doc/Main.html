@@ -1,0 +1,1481 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--Rendered using the Haskell Html Library v0.2-->
+<HTML
+><HEAD
+><META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8"
+><TITLE
+>Main</TITLE
+><LINK HREF="haddock.css" REL="stylesheet" TYPE="text/css"
+><SCRIPT SRC="haddock.js" TYPE="text/javascript"
+></SCRIPT
+></HEAD
+><BODY
+><TABLE CLASS="vanilla" CELLSPACING="0" CELLPADDING="0"
+><TR
+><TD CLASS="topbar"
+><TABLE CLASS="vanilla" CELLSPACING="0" CELLPADDING="0"
+><TR
+><TD
+><IMG SRC="haskell_icon.gif" WIDTH="16" HEIGHT="16" ALT=" "
+></TD
+><TD CLASS="title"
+>DiskCataloguer</TD
+><TD CLASS="topbut"
+><A HREF="index.html"
+>Contents</A
+></TD
+><TD CLASS="topbut"
+><A HREF="doc-index.html"
+>Index</A
+></TD
+></TR
+></TABLE
+></TD
+></TR
+><TR
+><TD CLASS="modulebar"
+><TABLE CLASS="vanilla" CELLSPACING="0" CELLPADDING="0"
+><TR
+><TD
+><FONT SIZE="6"
+>Main</FONT
+></TD
+><TD ALIGN="right"
+><TABLE CLASS="narrow" CELLSPACING="0" CELLPADDING="0"
+><TR
+><TD CLASS="infohead"
+>Portability</TD
+><TD CLASS="infoval"
+>portable</TD
+></TR
+><TR
+><TD CLASS="infohead"
+>Stability</TD
+><TD CLASS="infoval"
+>provisional</TD
+></TR
+><TR
+><TD CLASS="infohead"
+>Maintainer</TD
+><TD CLASS="infoval"
+>ulissesmonhecosta@gmail.com</TD
+></TR
+></TABLE
+></TD
+></TR
+></TABLE
+></TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="section1"
+>Description</TD
+></TR
+><TR
+><TD CLASS="doc"
+>This module illustrates &amp; tests most of the features of Haddock.
+ Testing references from the description: <TT
+><A HREF="Parser.html#v%3AT"
+>T</A
+></TT
+>, f, g, <TT
+><A HREF="Visible.html#v%3Avisible"
+>visible</A
+></TT
+>.
+</TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="section1"
+>Synopsis</TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="body"
+><TABLE CLASS="vanilla" CELLSPACING="0" CELLPADDING="0"
+><TR
+><TD CLASS="decl"
+><SPAN CLASS="keyword"
+>type</SPAN
+> <A HREF="#t%3AType"
+>Type</A
+> = <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Char.html#t%3AString"
+>String</A
+></TD
+></TR
+><TR
+><TD CLASS="s8"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A HREF="#v%3Adatabase"
+>database</A
+> :: <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/System-IO.html#t%3AFilePath"
+>FilePath</A
+></TD
+></TR
+><TR
+><TD CLASS="s8"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A HREF="#v%3AerrorFile"
+>errorFile</A
+> :: <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/System-IO.html#t%3AFilePath"
+>FilePath</A
+></TD
+></TR
+><TR
+><TD CLASS="s8"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A HREF="#v%3AwriteDataBase"
+>writeDataBase</A
+> :: <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Set.html#t%3ASet"
+>Set</A
+> (<A HREF="Cd2.html#t%3ADisco"
+>Disco</A
+> <A HREF="Cd2.html#t%3AData"
+>Data</A
+>) -&gt; <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/System-IO.html#t%3AIO"
+>IO</A
+> ()</TD
+></TR
+><TR
+><TD CLASS="s8"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A HREF="#v%3AreadDataBase"
+>readDataBase</A
+> :: <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/System-IO.html#t%3AIO"
+>IO</A
+> (<A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Set.html#t%3ASet"
+>Set</A
+> (<A HREF="Cd2.html#t%3ADisco"
+>Disco</A
+> <A HREF="Cd2.html#t%3AData"
+>Data</A
+>))</TD
+></TR
+><TR
+><TD CLASS="s8"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A HREF="#v%3AexitDCWithSuccess"
+>exitDCWithSuccess</A
+> :: <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/System-IO.html#t%3AIO"
+>IO</A
+> a</TD
+></TR
+><TR
+><TD CLASS="s8"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A HREF="#v%3AputStrLnTreeFunction"
+>putStrLnTreeFunction</A
+> :: (<A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Ord.html#t%3AOrd"
+>Ord</A
+> a, <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Text-Show.html#t%3AShow"
+>Show</A
+> a) =&gt; (<A HREF="Cd2.html#t%3AData"
+>Data</A
+> -&gt; a) -&gt; <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Set.html#t%3ASet"
+>Set</A
+> (<A HREF="Cd2.html#t%3ADisco"
+>Disco</A
+> <A HREF="Cd2.html#t%3AData"
+>Data</A
+>) -&gt; <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/System-IO.html#t%3AIO"
+>IO</A
+> ()</TD
+></TR
+><TR
+><TD CLASS="s8"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A HREF="#v%3Amain"
+>main</A
+> :: <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/System-IO.html#t%3AIO"
+>IO</A
+> ()</TD
+></TR
+><TR
+><TD CLASS="s8"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A HREF="#v%3AfunctionCompletion"
+>functionCompletion</A
+> :: <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Char.html#t%3AString"
+>String</A
+> -&gt; <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/System-IO.html#t%3AIO"
+>IO</A
+> [<A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Char.html#t%3AString"
+>String</A
+>]</TD
+></TR
+><TR
+><TD CLASS="s8"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><SPAN CLASS="keyword"
+>type</SPAN
+> <A HREF="#t%3ASearchCommand"
+>SearchCommand</A
+> = <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Char.html#t%3AString"
+>String</A
+></TD
+></TR
+><TR
+><TD CLASS="s8"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><SPAN CLASS="keyword"
+>type</SPAN
+> <A HREF="#t%3ASingleCommand"
+>SingleCommand</A
+> = <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Char.html#t%3AString"
+>String</A
+></TD
+></TR
+><TR
+><TD CLASS="s8"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A HREF="#v%3Acf"
+>cf</A
+> :: <A HREF="Main.html#t%3ASearchCommand"
+>SearchCommand</A
+> -&gt; <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Set.html#t%3ASet"
+>Set</A
+> (<A HREF="Cd2.html#t%3ADisco"
+>Disco</A
+> <A HREF="Cd2.html#t%3AData"
+>Data</A
+>) -&gt; [(<A HREF="Main.html#t%3ASingleCommand"
+>SingleCommand</A
+>, <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/System-IO.html#t%3AIO"
+>IO</A
+> ())]</TD
+></TR
+><TR
+><TD CLASS="s8"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A HREF="#v%3AputStrLnTreeSearch"
+>putStrLnTreeSearch</A
+> :: <A HREF="Main.html#t%3ASearchCommand"
+>SearchCommand</A
+> -&gt; <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Set.html#t%3ASet"
+>Set</A
+> (<A HREF="Cd2.html#t%3ADisco"
+>Disco</A
+> <A HREF="Cd2.html#t%3AData"
+>Data</A
+>) -&gt; <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/System-IO.html#t%3AIO"
+>IO</A
+> ()</TD
+></TR
+><TR
+><TD CLASS="s8"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A HREF="#v%3AcommandsList"
+>commandsList</A
+> :: [<A HREF="Main.html#t%3ASingleCommand"
+>SingleCommand</A
+>]</TD
+></TR
+><TR
+><TD CLASS="s8"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A HREF="#v%3AfunctionsList"
+>functionsList</A
+> :: <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Set.html#t%3ASet"
+>Set</A
+> (<A HREF="Cd2.html#t%3ADisco"
+>Disco</A
+> <A HREF="Cd2.html#t%3AData"
+>Data</A
+>) -&gt; [<A HREF="/usr/local/share/ghc-6.6/html/libraries/base/System-IO.html#t%3AIO"
+>IO</A
+> ()]</TD
+></TR
+><TR
+><TD CLASS="s8"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A HREF="#v%3AexecSearch"
+>execSearch</A
+> :: <A HREF="Main.html#t%3ASearchCommand"
+>SearchCommand</A
+> -&gt; <A HREF="Cd2.html#t%3ADisco"
+>Disco</A
+> <A HREF="Cd2.html#t%3AData"
+>Data</A
+> -&gt; <A HREF="Cd2.html#t%3ADisco"
+>Disco</A
+> <A HREF="Cd2.html#t%3AData"
+>Data</A
+></TD
+></TR
+><TR
+><TD CLASS="s8"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A HREF="#v%3AexecuteSingleCommand"
+>executeSingleCommand</A
+> :: <A HREF="Main.html#t%3ASearchCommand"
+>SearchCommand</A
+> -&gt; <A HREF="Main.html#t%3ASingleCommand"
+>SingleCommand</A
+> -&gt; <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Set.html#t%3ASet"
+>Set</A
+> (<A HREF="Cd2.html#t%3ADisco"
+>Disco</A
+> <A HREF="Cd2.html#t%3AData"
+>Data</A
+>) -&gt; <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/System-IO.html#t%3AIO"
+>IO</A
+> ()</TD
+></TR
+><TR
+><TD CLASS="s8"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A HREF="#v%3Akernel"
+>kernel</A
+> :: <A HREF="/usr/local/share/ghc-6.6/html/libraries/mtl/Control-Monad-State.html#t%3AStateT"
+>StateT</A
+> (<A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Set.html#t%3ASet"
+>Set</A
+> (<A HREF="Cd2.html#t%3ADisco"
+>Disco</A
+> <A HREF="Cd2.html#t%3AData"
+>Data</A
+>)) <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/System-IO.html#t%3AIO"
+>IO</A
+> ()</TD
+></TR
+><TR
+><TD CLASS="s8"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A HREF="#v%3Ascan_"
+>scan_</A
+> :: <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/System-IO.html#t%3AFilePath"
+>FilePath</A
+> -&gt; <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/System-IO.html#t%3AIO"
+>IO</A
+> (<A HREF="Cd2.html#t%3ADisco"
+>Disco</A
+> <A HREF="Cd2.html#t%3AData"
+>Data</A
+>)</TD
+></TR
+><TR
+><TD CLASS="s8"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A HREF="#v%3Ascan"
+>scan</A
+> :: <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/System-IO.html#t%3AFilePath"
+>FilePath</A
+> -&gt; <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/System-IO.html#t%3AIO"
+>IO</A
+> (<A HREF="Cd2.html#t%3ADisco"
+>Disco</A
+> (<A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Maybe.html#t%3AMaybe"
+>Maybe</A
+> <A HREF="Cd2.html#t%3AData"
+>Data</A
+>))</TD
+></TR
+><TR
+><TD CLASS="s8"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><SPAN CLASS="keyword"
+>type</SPAN
+> <A HREF="#t%3AFileName"
+>FileName</A
+> = <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Char.html#t%3AString"
+>String</A
+></TD
+></TR
+><TR
+><TD CLASS="s8"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A HREF="#v%3AfileName"
+>fileName</A
+> :: <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/System-IO.html#t%3AFilePath"
+>FilePath</A
+> -&gt; <A HREF="Main.html#t%3AFileName"
+>FileName</A
+></TD
+></TR
+><TR
+><TD CLASS="s8"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A HREF="#v%3AgetDirectoryContentsDiskCatalog"
+>getDirectoryContentsDiskCatalog</A
+> :: <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/System-IO.html#t%3AFilePath"
+>FilePath</A
+> -&gt; <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/System-IO.html#t%3AIO"
+>IO</A
+> [<A HREF="/usr/local/share/ghc-6.6/html/libraries/base/System-IO.html#t%3AFilePath"
+>FilePath</A
+>]</TD
+></TR
+><TR
+><TD CLASS="s8"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A HREF="#v%3AgetInfoFile"
+>getInfoFile</A
+> :: <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/System-IO.html#t%3AFilePath"
+>FilePath</A
+> -&gt; <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Either.html#t%3AEither"
+>Either</A
+> () () -&gt; <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/System-IO.html#t%3AIO"
+>IO</A
+> (<A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Maybe.html#t%3AMaybe"
+>Maybe</A
+> <A HREF="Cd2.html#t%3AData"
+>Data</A
+>)</TD
+></TR
+><TR
+><TD CLASS="s8"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A HREF="#v%3AreportError"
+>reportError</A
+> :: <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/System-IO-Error.html#t%3AIOError"
+>IOError</A
+> -&gt; <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/System-IO.html#t%3AIO"
+>IO</A
+> ()</TD
+></TR
+><TR
+><TD CLASS="s8"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A HREF="#v%3Atipe"
+>tipe</A
+> :: <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/System-IO.html#t%3AFilePath"
+>FilePath</A
+> -&gt; <A HREF="Main.html#t%3AType"
+>Type</A
+></TD
+></TR
+></TABLE
+></TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="section1"
+>Documentation</TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><SPAN CLASS="keyword"
+>type</SPAN
+> <A NAME="t%3AType"
+></A
+><B
+>Type</B
+> = <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Char.html#t%3AString"
+>String</A
+></TD
+></TR
+><TR
+><TD CLASS="doc"
+>Um atalho para <EM
+>following</EM
+> declaration
+ and it continues until the next non-comment line
+</TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3Adatabase"
+></A
+><B
+>database</B
+> :: <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/System-IO.html#t%3AFilePath"
+>FilePath</A
+></TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3AerrorFile"
+></A
+><B
+>errorFile</B
+> :: <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/System-IO.html#t%3AFilePath"
+>FilePath</A
+></TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3AwriteDataBase"
+></A
+><B
+>writeDataBase</B
+> :: <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Set.html#t%3ASet"
+>Set</A
+> (<A HREF="Cd2.html#t%3ADisco"
+>Disco</A
+> <A HREF="Cd2.html#t%3AData"
+>Data</A
+>) -&gt; <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/System-IO.html#t%3AIO"
+>IO</A
+> ()</TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3AreadDataBase"
+></A
+><B
+>readDataBase</B
+> :: <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/System-IO.html#t%3AIO"
+>IO</A
+> (<A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Set.html#t%3ASet"
+>Set</A
+> (<A HREF="Cd2.html#t%3ADisco"
+>Disco</A
+> <A HREF="Cd2.html#t%3AData"
+>Data</A
+>))</TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3AexitDCWithSuccess"
+></A
+><B
+>exitDCWithSuccess</B
+> :: <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/System-IO.html#t%3AIO"
+>IO</A
+> a</TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3AputStrLnTreeFunction"
+></A
+><B
+>putStrLnTreeFunction</B
+> :: (<A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Ord.html#t%3AOrd"
+>Ord</A
+> a, <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Text-Show.html#t%3AShow"
+>Show</A
+> a) =&gt; (<A HREF="Cd2.html#t%3AData"
+>Data</A
+> -&gt; a) -&gt; <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Set.html#t%3ASet"
+>Set</A
+> (<A HREF="Cd2.html#t%3ADisco"
+>Disco</A
+> <A HREF="Cd2.html#t%3AData"
+>Data</A
+>) -&gt; <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/System-IO.html#t%3AIO"
+>IO</A
+> ()</TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3Amain"
+></A
+><B
+>main</B
+> :: <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/System-IO.html#t%3AIO"
+>IO</A
+> ()</TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3AfunctionCompletion"
+></A
+><B
+>functionCompletion</B
+> :: <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Char.html#t%3AString"
+>String</A
+> -&gt; <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/System-IO.html#t%3AIO"
+>IO</A
+> [<A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Char.html#t%3AString"
+>String</A
+>]</TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><SPAN CLASS="keyword"
+>type</SPAN
+> <A NAME="t%3ASearchCommand"
+></A
+><B
+>SearchCommand</B
+> = <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Char.html#t%3AString"
+>String</A
+></TD
+></TR
+><TR
+><TD CLASS="doc"
+><P
+>Type of a SearchCommand
+</P
+><P
+><TT
+><A HREF="Main.html#t%3ASearchCommand"
+>SearchCommand</A
+></TT
+> means:
+</P
+><UL
+><LI
+> &quot;search hello t hs&quot; <EM
+>(finding all files that the name include the word &quot;hello&quot; and the type is &quot;.hs&quot;)</EM
+>
+</LI
+><LI
+> &quot;search hello t lhs ms 40&quot; <EM
+>(finding all files that the name include the word &quot;hello&quot;, the type is &quot;.lhs&quot; and
+ the size is lesser or equal than 40bytes)</EM
+>
+</LI
+><LI
+> etc...
+</LI
+></UL
+></TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><SPAN CLASS="keyword"
+>type</SPAN
+> <A NAME="t%3ASingleCommand"
+></A
+><B
+>SingleCommand</B
+> = <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Char.html#t%3AString"
+>String</A
+></TD
+></TR
+><TR
+><TD CLASS="doc"
+><P
+>Type of a SingleCommand
+</P
+><P
+><TT
+><A HREF="Main.html#t%3ASingleCommand"
+>SingleCommand</A
+></TT
+> means:
+</P
+><UL
+><LI
+> &quot;showTreeNames&quot;
+</LI
+><LI
+> &quot;showTreeSizes&quot;
+</LI
+><LI
+> etc...
+</LI
+></UL
+></TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3Acf"
+></A
+><B
+>cf</B
+> :: <A HREF="Main.html#t%3ASearchCommand"
+>SearchCommand</A
+> -&gt; <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Set.html#t%3ASet"
+>Set</A
+> (<A HREF="Cd2.html#t%3ADisco"
+>Disco</A
+> <A HREF="Cd2.html#t%3AData"
+>Data</A
+>) -&gt; [(<A HREF="Main.html#t%3ASingleCommand"
+>SingleCommand</A
+>, <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/System-IO.html#t%3AIO"
+>IO</A
+> ())]</TD
+></TR
+><TR
+><TD CLASS="doc"
+>The <EM
+>relation</EM
+> between <TT
+><A HREF="Main.html#t%3ASingleCommand"
+>SingleCommand</A
+></TT
+> and the result
+ of that's commands
+</TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3AputStrLnTreeSearch"
+></A
+><B
+>putStrLnTreeSearch</B
+> :: <A HREF="Main.html#t%3ASearchCommand"
+>SearchCommand</A
+> -&gt; <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Set.html#t%3ASet"
+>Set</A
+> (<A HREF="Cd2.html#t%3ADisco"
+>Disco</A
+> <A HREF="Cd2.html#t%3AData"
+>Data</A
+>) -&gt; <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/System-IO.html#t%3AIO"
+>IO</A
+> ()</TD
+></TR
+><TR
+><TD CLASS="doc"
+><P
+>Show <EM
+>all</EM
+> the tree in a tuple form (<TT
+><A HREF="Cd2.html#v%3Aname"
+>name</A
+></TT
+>,<TT
+><A HREF="Cd2.html#v%3Atipo"
+>tipo</A
+></TT
+>).
+</P
+><P
+>This function use <TT
+><A HREF="Cd2.html#v%3AshowDisco"
+>showDisco</A
+></TT
+>, see that for more information
+ about the output.
+</P
+></TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3AcommandsList"
+></A
+><B
+>commandsList</B
+> :: [<A HREF="Main.html#t%3ASingleCommand"
+>SingleCommand</A
+>]</TD
+></TR
+><TR
+><TD CLASS="doc"
+>The list of available commands
+</TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3AfunctionsList"
+></A
+><B
+>functionsList</B
+> :: <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Set.html#t%3ASet"
+>Set</A
+> (<A HREF="Cd2.html#t%3ADisco"
+>Disco</A
+> <A HREF="Cd2.html#t%3AData"
+>Data</A
+>) -&gt; [<A HREF="/usr/local/share/ghc-6.6/html/libraries/base/System-IO.html#t%3AIO"
+>IO</A
+> ()]</TD
+></TR
+><TR
+><TD CLASS="doc"
+>The list of available functions
+</TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3AexecSearch"
+></A
+><B
+>execSearch</B
+> :: <A HREF="Main.html#t%3ASearchCommand"
+>SearchCommand</A
+> -&gt; <A HREF="Cd2.html#t%3ADisco"
+>Disco</A
+> <A HREF="Cd2.html#t%3AData"
+>Data</A
+> -&gt; <A HREF="Cd2.html#t%3ADisco"
+>Disco</A
+> <A HREF="Cd2.html#t%3AData"
+>Data</A
+></TD
+></TR
+><TR
+><TD CLASS="doc"
+><P
+>Parse and execute a <TT
+><A HREF="Parser.html#v%3ASearch"
+>Search</A
+></TT
+> command for a <TT
+><A HREF="Cd2.html#t%3ADisco"
+>Disco</A
+></TT
+> <TT
+><A HREF="Cd2.html#t%3AData"
+>Data</A
+></TT
+>.
+</P
+><P
+>Returns a filtered <TT
+><A HREF="Cd2.html#t%3ADisco"
+>Disco</A
+></TT
+> <TT
+><A HREF="Cd2.html#t%3AData"
+>Data</A
+></TT
+> cf. the given command
+</P
+><P
+>If the command does not respect the syntax then return:
+ Pasta a [], the emptyed root directory
+</P
+></TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3AexecuteSingleCommand"
+></A
+><B
+>executeSingleCommand</B
+> :: <A HREF="Main.html#t%3ASearchCommand"
+>SearchCommand</A
+> -&gt; <A HREF="Main.html#t%3ASingleCommand"
+>SingleCommand</A
+> -&gt; <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Set.html#t%3ASet"
+>Set</A
+> (<A HREF="Cd2.html#t%3ADisco"
+>Disco</A
+> <A HREF="Cd2.html#t%3AData"
+>Data</A
+>) -&gt; <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/System-IO.html#t%3AIO"
+>IO</A
+> ()</TD
+></TR
+><TR
+><TD CLASS="doc"
+><P
+>Execute a <TT
+><A HREF="Parser.html#t%3AComando"
+>Comando</A
+></TT
+> from the stdin.
+</P
+><P
+>This function find the command from <TT
+><A HREF="Main.html#v%3AcommandsList"
+>commandsList</A
+></TT
+> and pick what function
+ showld execute from <TT
+><A HREF="Main.html#v%3AfunctionsList"
+>functionsList</A
+></TT
+> using the <TT
+><A HREF="Main.html#v%3Acf"
+>cf</A
+></TT
+> function
+</P
+></TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3Akernel"
+></A
+><B
+>kernel</B
+> :: <A HREF="/usr/local/share/ghc-6.6/html/libraries/mtl/Control-Monad-State.html#t%3AStateT"
+>StateT</A
+> (<A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Set.html#t%3ASet"
+>Set</A
+> (<A HREF="Cd2.html#t%3ADisco"
+>Disco</A
+> <A HREF="Cd2.html#t%3AData"
+>Data</A
+>)) <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/System-IO.html#t%3AIO"
+>IO</A
+> ()</TD
+></TR
+><TR
+><TD CLASS="doc"
+><P
+>Our kernel!
+</P
+><P
+>With <TT
+><A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Control-Monad.html#t%3AMonad"
+>Monad</A
+></TT
+> <TT
+><A HREF="/usr/local/share/ghc-6.6/html/libraries/mtl/Control-Monad-State.html#t%3AStateT"
+>StateT</A
+></TT
+> where our state is <TT
+><A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Set.html#t%3ASet"
+>Set</A
+></TT
+> (<TT
+><A HREF="Cd2.html#t%3ADisco"
+>Disco</A
+></TT
+> <TT
+><A HREF="Cd2.html#t%3AData"
+>Data</A
+></TT
+>).
+</P
+><P
+>Using the <TT
+><A HREF="/usr/local/share/ghc-6.6/html/libraries/readline/System-Console-Readline.html#v%3Areadline"
+>readline</A
+></TT
+> and other's from <A HREF="/usr/local/share/ghc-6.6/html/libraries/readline/System-Console-Readline.html"
+>System.Console.Readline</A
+>
+</P
+></TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3Ascan_"
+></A
+><B
+>scan_</B
+> :: <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/System-IO.html#t%3AFilePath"
+>FilePath</A
+> -&gt; <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/System-IO.html#t%3AIO"
+>IO</A
+> (<A HREF="Cd2.html#t%3ADisco"
+>Disco</A
+> <A HREF="Cd2.html#t%3AData"
+>Data</A
+>)</TD
+></TR
+><TR
+><TD CLASS="doc"
+>Is the responsable for find files recursively in any
+ valid directory <TT
+>d</TT
+> and assemble the information in data
+ <TT
+><A HREF="Cd2.html#t%3ADisco"
+>Disco</A
+></TT
+> <TT
+><A HREF="Cd2.html#t%3AData"
+>Data</A
+></TT
+>, our type...
+</TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3Ascan"
+></A
+><B
+>scan</B
+> :: <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/System-IO.html#t%3AFilePath"
+>FilePath</A
+> -&gt; <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/System-IO.html#t%3AIO"
+>IO</A
+> (<A HREF="Cd2.html#t%3ADisco"
+>Disco</A
+> (<A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Maybe.html#t%3AMaybe"
+>Maybe</A
+> <A HREF="Cd2.html#t%3AData"
+>Data</A
+>))</TD
+></TR
+><TR
+><TD CLASS="doc"
+>Is the responsable for find files recursively in any
+ valid directory <TT
+>d</TT
+> and assemble the information in data
+ <TT
+><A HREF="Cd2.html#t%3ADisco"
+>Disco</A
+></TT
+> (<TT
+><A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Maybe.html#t%3AMaybe"
+>Maybe</A
+></TT
+> <TT
+><A HREF="Cd2.html#t%3AData"
+>Data</A
+></TT
+>), a intermidian type...
+ because of the errors...
+</TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><SPAN CLASS="keyword"
+>type</SPAN
+> <A NAME="t%3AFileName"
+></A
+><B
+>FileName</B
+> = <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Char.html#t%3AString"
+>String</A
+></TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3AfileName"
+></A
+><B
+>fileName</B
+></TD
+></TR
+><TR
+><TD CLASS="body"
+><TABLE CLASS="vanilla" CELLSPACING="0" CELLPADDING="0"
+><TR
+><TD CLASS="arg"
+>:: <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/System-IO.html#t%3AFilePath"
+>FilePath</A
+></TD
+><TD CLASS="rdoc"
+><TT
+><A HREF="/usr/local/share/ghc-6.6/html/libraries/base/System-IO.html#t%3AFilePath"
+>FilePath</A
+></TT
+> of the file
+</TD
+></TR
+><TR
+><TD CLASS="arg"
+>-&gt; <A HREF="Main.html#t%3AFileName"
+>FileName</A
+></TD
+><TD CLASS="rdoc"
+>Return just the name of the file
+</TD
+></TR
+><TR
+><TD CLASS="ndoc" COLSPAN="2"
+><P
+>Get the file name from a path.
+</P
+><UL
+><LI
+> Dyagram of function <TT
+><A HREF="Main.html#v%3AfileName"
+>fileName</A
+></TT
+>, in a anamorphism:
+</LI
+></UL
+><PRE
+>                               genAna_s
+                 [<TT
+><A HREF="Cd2.html#t%3ADisco"
+>Disco</A
+></TT
+> a] ---------------&gt; 1 + [<TT
+><A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Char.html#t%3AChar"
+>Char</A
+></TT
+>] * [<TT
+><A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Char.html#t%3AChar"
+>Char</A
+></TT
+>]
+                     |                              |
+                     |                              |
+    <TT
+><A HREF="Cd2.html#v%3Aanalist"
+>analist</A
+></TT
+> genAna_s |                              | id -|- id &gt;&lt; <TT
+><A HREF="Cd2.html#v%3Aanalist"
+>analist</A
+></TT
+> genAna_s
+                     |                              |
+                     V                              V
+                 [[<TT
+><A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Char.html#t%3AChar"
+>Char</A
+></TT
+>]] &lt;------------------- 1 + [<TT
+><A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Char.html#t%3AChar"
+>Char</A
+></TT
+>] * [[<TT
+><A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Char.html#t%3AChar"
+>Char</A
+></TT
+>]]
+                               <TT
+><A HREF="Cd2.html#v%3Ainlist"
+>inlist</A
+></TT
+> (matrix)
+</PRE
+><PRE
+> where genAna_s is the auxiliar function of the anamorphism.
+</PRE
+></TD
+></TR
+></TABLE
+></TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3AgetDirectoryContentsDiskCatalog"
+></A
+><B
+>getDirectoryContentsDiskCatalog</B
+> :: <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/System-IO.html#t%3AFilePath"
+>FilePath</A
+> -&gt; <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/System-IO.html#t%3AIO"
+>IO</A
+> [<A HREF="/usr/local/share/ghc-6.6/html/libraries/base/System-IO.html#t%3AFilePath"
+>FilePath</A
+>]</TD
+></TR
+><TR
+><TD CLASS="doc"
+><P
+>Get directory contents and drop the '..' and '.' dir's.
+</P
+><UL
+><LI
+> <EM
+>getDirectoryContentsDiskCatalog</EM
+> in 'do' notation:
+</LI
+></UL
+><PRE
+> getDirectoryContentsDiskCatalog s =
+    do l &lt;- getDirectoryContents s
+       return $ (drop 2) $ map (s++) l
+</PRE
+></TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3AgetInfoFile"
+></A
+><B
+>getInfoFile</B
+></TD
+></TR
+><TR
+><TD CLASS="body"
+><TABLE CLASS="vanilla" CELLSPACING="0" CELLPADDING="0"
+><TR
+><TD CLASS="arg"
+>:: <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/System-IO.html#t%3AFilePath"
+>FilePath</A
+></TD
+><TD CLASS="rdoc"
+><TT
+><A HREF="/usr/local/share/ghc-6.6/html/libraries/base/System-IO.html#t%3AFilePath"
+>FilePath</A
+></TT
+> of file
+</TD
+></TR
+><TR
+><TD CLASS="arg"
+>-&gt; <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Either.html#t%3AEither"
+>Either</A
+> () ()</TD
+><TD CLASS="rdoc"
+><TT
+><A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Either.html#v%3ALeft"
+>Left</A
+></TT
+>() if <TT
+><A HREF="/usr/local/share/ghc-6.6/html/libraries/base/System-IO.html#t%3AFilePath"
+>FilePath</A
+></TT
+> variable points to a file or <TT
+><A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Either.html#v%3ARight"
+>Right</A
+></TT
+>() if it's a directory
+</TD
+></TR
+><TR
+><TD CLASS="arg"
+>-&gt; <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/System-IO.html#t%3AIO"
+>IO</A
+> (<A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Maybe.html#t%3AMaybe"
+>Maybe</A
+> <A HREF="Cd2.html#t%3AData"
+>Data</A
+>)</TD
+><TD CLASS="rdoc"
+>return <TT
+><A HREF="/usr/local/share/ghc-6.6/html/libraries/base/Data-Maybe.html#v%3ANothing"
+>Nothing</A
+></TT
+> if accours an error (report it to log.err file) see: <TT
+><A HREF="Main.html#v%3AreportError"
+>reportError</A
+></TT
+>
+</TD
+></TR
+><TR
+><TD CLASS="ndoc" COLSPAN="2"
+>Assemble some file information into <TT
+><A HREF="Cd2.html#t%3AData"
+>Data</A
+></TT
+>.
+</TD
+></TR
+></TABLE
+></TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3AreportError"
+></A
+><B
+>reportError</B
+> :: <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/System-IO-Error.html#t%3AIOError"
+>IOError</A
+> -&gt; <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/System-IO.html#t%3AIO"
+>IO</A
+> ()</TD
+></TR
+><TR
+><TD CLASS="doc"
+>Report an error into file log.err.
+</TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="decl"
+><A NAME="v%3Atipe"
+></A
+><B
+>tipe</B
+> :: <A HREF="/usr/local/share/ghc-6.6/html/libraries/base/System-IO.html#t%3AFilePath"
+>FilePath</A
+> -&gt; <A HREF="Main.html#t%3AType"
+>Type</A
+></TD
+></TR
+><TR
+><TD CLASS="doc"
+><P
+>Get the type of a file.
+</P
+><UL
+><LI
+>Examples:
+</LI
+></UL
+><PRE
+> |--------------------|
+ | filename  | result |
+ +--------------------+
+ | abc.def   | def    |
+ | abc.de.fg | fg     |
+ | abc.def.g | g      |
+</PRE
+></TD
+></TR
+><TR
+><TD CLASS="s15"
+></TD
+></TR
+><TR
+><TD CLASS="botbar"
+>Produced by <A HREF="http://www.haskell.org/haddock/"
+>Haddock</A
+> version 0.8</TD
+></TR
+></TABLE
+></BODY
+></HTML
+>
